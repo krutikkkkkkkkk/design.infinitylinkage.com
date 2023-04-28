@@ -1,68 +1,36 @@
-const fontList = document.getElementById("font-list");
-const textInput = document.getElementById("text-input");
+const textInput = document.getElementById('textInput');
+const fontContainer = document.getElementById('fontContainer');
+const fontPermissionBtn = document.getElementById('fontPermissionBtn');
 
-// Ask for permission to access installed fonts
-if (document.fonts && document.fonts.ready) {
-  document.fonts.ready.then(() => {
-    console.log("Fonts loaded");
-  }).catch((err) => {
-    console.error("Error loading fonts", err);
-  });
-} else {
-  // Fallback for older browsers
-  const permissionStatus = document.webkitPermissionRequest ? document.webkitPermissionRequest('font') : undefined;
-  if (permissionStatus === undefined) {
-    console.log("Permission request not supported");
-  } else {
-    permissionStatus.then(() => {
-      console.log("Permission granted");
-    }).catch(() => {
-      console.log("Permission denied");
+fontPermissionBtn.addEventListener('click', requestFontPermission);
+
+async function requestFontPermission() {
+  try {
+    await document.fonts.ready;
+    const fonts = await document.fonts.query().then(fonts => fonts.map(font => font.family));
+    fontContainer.innerHTML = '';
+    fonts.forEach(font => {
+      const fontDiv = document.createElement('div');
+      fontDiv.classList.add('font');
+      const fontName = document.createElement('p');
+      fontName.classList.add('font__name');
+      fontName.textContent = font;
+      fontDiv.appendChild(fontName);
+      const fontPreview = document.createElement('p');
+      fontPreview.classList.add('font__preview');
+      fontPreview.textContent = textInput.value;
+      fontPreview.style.fontFamily = font;
+      fontDiv.appendChild(fontPreview);
+      fontContainer.appendChild(fontDiv);
     });
+  } catch (error) {
+    console.log(error);
   }
 }
 
-// Generate preview for all installed fonts
-function generatePreview() {
-  const fonts = document.fonts ? document.fonts : undefined;
-
-  if (!fonts || !fonts.ready) {
-    console.log("Fonts not available");
-    return;
-  }
-
-  const text = textInput.value.trim();
-
-  if (text.length === 0) {
-    console.log("Empty text input");
-    return;
-  }
-
-  fontList.innerHTML = "";
-
-  fonts.ready.then(() => {
-    console.log("Fonts loaded");
-
-    fonts.forEach((font) => {
-      const fontName = font.family;
-      const fontPreview = document.createElement("li");
-      fontPreview.classList.add("font-preview");
-
-      const fontNameElem = document.createElement("p");
-      fontNameElem.textContent = fontName;
-      fontNameElem.style.fontFamily = fontName;
-
-      const textElem = document.createElement("p");
-      textElem.textContent = text;
-      textElem.style.fontFamily = fontName;
-
-      fontPreview.appendChild(fontNameElem);
-      fontPreview.appendChild(textElem);
-      fontList.appendChild(fontPreview);
-    });
-  }).catch((err) => {
-    console.error("Error loading fonts", err);
+textInput.addEventListener('input', () => {
+  const fontPreviews = document.querySelectorAll('.font__preview');
+  fontPreviews.forEach(fontPreview => {
+    fontPreview.textContent = textInput.value;
   });
-}
-
-textInput.addEventListener("input", generatePreview);
+});

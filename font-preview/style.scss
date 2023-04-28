@@ -1,73 +1,86 @@
-/* Reset styles */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
   
   body {
-    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    font-family: sans-serif;
   }
   
-  /* Container styles */
   .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 20px;
   }
   
-  /* Heading styles */
   h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
   }
   
-  /* Form styles */
   .form {
     display: flex;
-    align-items: center;
-    margin-bottom: 2rem;
+    flex-direction: column;
+    margin-bottom: 20px;
   }
   
   .form__label {
-    font-size: 1.5rem;
-    margin-right: 1rem;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
   }
   
   .form__input {
-    font-size: 1.5rem;
-    padding: 0.5rem 1rem;
-    border: 2px solid #ccc;
-    border-radius: 0.5rem;
-    flex-grow: 1;
+    font-size: 1.2rem;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid #ccc;
   }
   
-  /* Font list styles */
-  .font-list {
+  button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2196f3;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-bottom: 20px;
+  }
+  
+  button:hover {
+    background-color: #0d8bf2;
+  }
+  
+  .fonts {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 2rem;
-    list-style: none;
+    grid-gap: 20px;
   }
   
-  .font-preview {
+  .font {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .font__name {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
     text-align: center;
-    padding: 2rem;
-    border: 2px solid #ccc;
-    border-radius: 1rem;
   }
   
-  .font-preview p:first-child {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .font-preview p:last-child {
-    font-size: 1.5rem;
-    margin-top: 1rem;
+  .font__preview {
+    font-size: 2.4rem;
+    text-align: center;
   }
   

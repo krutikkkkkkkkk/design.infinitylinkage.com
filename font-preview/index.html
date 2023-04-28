@@ -9,12 +9,13 @@
   <div class="container">
     <h1>Font Previewer</h1>
     <div class="form">
-      <label for="text-input" class="form__label">Enter text to preview:</label>
-      <input type="text" id="text-input" class="form__input" placeholder="Type something...">
+      <label class="form__label" for="textInput">Enter text:</label>
+      <input class="form__input" type="text" id="textInput">
     </div>
-    <ul id="font-list" class="font-list"></ul>
+    <button id="fontPermissionBtn">Grant Font Permission</button>
+    <div class="fonts" id="fontContainer"></div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
