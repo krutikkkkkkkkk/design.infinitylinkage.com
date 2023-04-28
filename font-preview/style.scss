@@ -5,159 +5,69 @@
     box-sizing: border-box;
   }
   
-  /* Global styles */
   body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    color: #333;
-    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
   }
   
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 0;
-    font-weight: bold;
-  }
-  
-  h1 {
-    font-size: 32px;
-  }
-  
-  p {
-    margin-bottom: 10px;
-  }
-  
-  input[type="text"] {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    background-color: #f2f2f2;
-    color: #333;
-  }
-  
-  button {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: #0062cc;
-  }
-  
-  /* Style for header */
-  .header {
-    background-color: #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  
-  /* Style for heading */
-  .heading {
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  /* Style for main */
-  .main {
+  /* Container styles */
+  .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
   }
   
-  /* Style for form */
+  /* Heading styles */
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Form styles */
   .form {
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
   }
   
-  /* Style for form label */
-/* Style for form label */
-.form__label {
-    display: block;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  .form__label {
+    font-size: 1.5rem;
+    margin-right: 1rem;
   }
   
-  /* Style for form input */
   .form__input {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    background-color: #f2f2f2;
-    color: #333;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid #ccc;
+    border-radius: 0.5rem;
+    flex-grow: 1;
   }
   
-  /* Style for form button */
-  .form__button {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .form__button:hover {
-    background-color: #0062cc;
-  }
-  
-  /* Style for preview container */
-  .preview-container {
+  /* Font list styles */
+  .font-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
+    grid-gap: 2rem;
+    list-style: none;
   }
   
-  /* Style for font preview card */
   .font-preview {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 2rem;
+    border: 2px solid #ccc;
+    border-radius: 1rem;
   }
   
-  .font-preview__name {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
+  .font-preview p:first-child {
+    font-size: 2rem;
+    margin-bottom: 1rem;
   }
   
-  .font-preview__text {
-    font-size: 24px;
-    text-align: center;
+  .font-preview p:last-child {
+    font-size: 1.5rem;
+    margin-top: 1rem;
   }
   
