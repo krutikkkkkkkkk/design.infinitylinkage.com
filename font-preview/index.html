@@ -7,15 +7,12 @@
 </head>
 <body>
   <div class="container">
-    <h1>Font Previewer</h1>
-    <div class="form">
-      <label class="form__label" for="textInput">Enter text:</label>
-      <input class="form__input" type="text" id="textInput">
+    <input type="text" id="user-text" onkeyup="updatePreview()" placeholder="Type your text here...">
+    <div id="font-preview">
+        
     </div>
-    <button id="fontPermissionBtn">Grant Font Permission</button>
-    <div class="fonts" id="fontContainer"></div>
   </div>
 
-  <script src="app.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

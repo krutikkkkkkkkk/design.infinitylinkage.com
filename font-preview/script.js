@@ -1,36 +1,30 @@
-const textInput = document.getElementById('textInput');
-const fontContainer = document.getElementById('fontContainer');
-const fontPermissionBtn = document.getElementById('fontPermissionBtn');
-
-fontPermissionBtn.addEventListener('click', requestFontPermission);
-
-async function requestFontPermission() {
-  try {
-    await document.fonts.ready;
-    const fonts = await document.fonts.query().then(fonts => fonts.map(font => font.family));
-    fontContainer.innerHTML = '';
-    fonts.forEach(font => {
-      const fontDiv = document.createElement('div');
-      fontDiv.classList.add('font');
-      const fontName = document.createElement('p');
-      fontName.classList.add('font__name');
-      fontName.textContent = font;
-      fontDiv.appendChild(fontName);
-      const fontPreview = document.createElement('p');
-      fontPreview.classList.add('font__preview');
-      fontPreview.textContent = textInput.value;
-      fontPreview.style.fontFamily = font;
-      fontDiv.appendChild(fontPreview);
-      fontContainer.appendChild(fontDiv);
+async function updatePreview() {
+    const userText = document.getElementById('user-text').value;
+    const fontPreview = document.getElementById('font-preview');
+    fontPreview.innerHTML = '';
+  
+    if (!('fonts' in document)) {
+      fontPreview.innerHTML = 'Your browser does not support the FontFace API';
+      return;
+    }
+  
+    const permissionStatus = await navigator.permissions.query({ name: 'font-access' });
+    if (permissionStatus.state !== 'granted') {
+      const permissionResult = await navigator.permissions.request({ name: 'font-access' });
+      if (permissionResult.state !== 'granted') {
+        fontPreview.innerHTML = 'You did not grant permission to access the fonts';
+        return;
+      }
+    }
+  
+    const fonts = await document.fonts.ready;
+    const fontList = fonts.map(font => font.family);
+  
+    fontList.forEach(font => {
+      const fontPreviewItem = document.createElement('div');
+      fontPreviewItem.style.fontFamily = font;
+      fontPreviewItem.textContent = userText;
+      fontPreview.appendChild(fontPreviewItem);
     });
-  } catch (error) {
-    console.log(error);
   }
-}
-
-textInput.addEventListener('input', () => {
-  const fontPreviews = document.querySelectorAll('.font__preview');
-  fontPreviews.forEach(fontPreview => {
-    fontPreview.textContent = textInput.value;
-  });
-});
+  
