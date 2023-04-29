@@ -74,6 +74,6 @@ function displayImg(){
 function displaySVG(size, type){
   var svgdiv = document.getElementById('svgdiv');
   svgdiv.style.display = 'inline-block';
-  svgdiv.innerHTML =  Potrace.getSVG(size, type);
+  svgdiv.innerHTML = "<p>Output SVG:</p>" +  Potrace.getSVG(size, type);
 }
 
