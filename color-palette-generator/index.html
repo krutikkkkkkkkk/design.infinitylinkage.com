@@ -24,6 +24,20 @@
     <button id="generate-button" class="btn-hover">Generate</button>
  </div>
 
+ <footer style="position: absolute; bottom: 0; width: 100%; right: 0; left: 0;">
+  <div class="container-fluid d-flex justify-content-center align-items-center w-100 mb-3">
+    <div class="row">
+     
+        <p>© <span id="year"></span> <a href="https://infinitylinkage.com" target="_blank">Infinity Linkage.</a></p>
+
+    </div>
+  </div>
+ </footer>
+
+ <script>
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+ </script>
+
   
 
   <script src="../color-palette-generator/script.js"></script>
