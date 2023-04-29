@@ -19,12 +19,17 @@
     <h2> Color Palette Generator</h2>
     <p>Click on a color to copy its hex code to the clipboard.</p>
     <div id="color-palette">
-      
+  
     </div>
+    <div class="range d-flex flex-column justify-content-center align-items-center">
+      <input type="range" min="2" max="5" value="3" class="slider" id="myRange">
+      <p>Value: <span id="demo"></span></p>
+    </div>
+   
     <button id="generate-button" class="btn-hover">Generate</button>
  </div>
 
-  
+
 
   <script src="../color-palette-generator/script.js"></script>
 </body>

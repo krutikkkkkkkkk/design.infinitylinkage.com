@@ -2,6 +2,14 @@ const colorPalette = document.getElementById("color-palette");
 const generateButton = document.getElementById("generate-button");
 let colors = [];
 
+
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+slider.addEventListener('change', function(){
+  output.innerHTML = this.value;
+})
+
 function generateColor() {
   const hexChars = "0123456789ABCDEF";
   let hexCode = "#";
@@ -14,7 +22,7 @@ function generateColor() {
 function generatePalette() {
   colors = [];
   colorPalette.innerHTML = "";
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < slider.value; i++) {
     const color = generateColor();
     colors.push(color);
     const colorDiv = document.createElement("div");
