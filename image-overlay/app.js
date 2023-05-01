@@ -2,7 +2,7 @@
 const form = document.querySelector('#image-form');
 const canvas = document.querySelector('#canvas');
 const downloadLink = document.querySelector('#download-link');
-const dlstat = document.querySelector('#dl-status');
+const dlstat = document.getElementById('dl-status');
 
 // Add an event listener to the form submit event
 form.addEventListener('submit', async (event) => {
@@ -11,14 +11,14 @@ form.addEventListener('submit', async (event) => {
   // Get the base and overlay images from the input elements
   const baseImages = [...document.querySelector('#base-image').files];
   const overlayImage = document.querySelector('#overlay-image').files[0];
-  dlstat.inerHTML = 'Processing... 10%';
+  dlstat.innerText = 'Processing... 10%';
 
   // Load the overlay image as an image object
   const overlay = await loadImage(overlayImage);
 
   // Create a zip file to hold the resulting images
   const zip = new JSZip();
-  dlstat.inerHTML = 'Processing... 20%';
+  dlstat.innerText = 'Processing... 20%';
 
   // Loop through each base image and overlay them with the PNG
   for (const baseImage of baseImages) {
@@ -28,7 +28,7 @@ form.addEventListener('submit', async (event) => {
     // Set the canvas dimensions to match the base image dimensions
     canvas.width = base.width;
     canvas.height = base.height;
-    dlstat.inerHTML = 'Processing... 60%';
+    dlstat.innerText = 'Processing... 60%';
 
     // Draw the base image onto the canvas
     canvas.getContext('2d').drawImage(base, 0, 0);
@@ -46,12 +46,12 @@ form.addEventListener('submit', async (event) => {
   // Generate a blob from the zip file and create a URL to download it
   const zipBlob = await zip.generateAsync({ type: 'blob' });
   const zipUrl = URL.createObjectURL(zipBlob);
-  dlstat.inerHTML = 'Processing... 90%';
+  dlstat.innerText = 'Processing... 90%';
   // Set the download link href attribute to the URL and enable it
   downloadLink.href = zipUrl;
   downloadLink.classList.remove('disabled')
   downloadLink.disabled = false;
-  dlstat.inerHTML = 'Done 100%';
+  dlstat.innerText = 'Done 100%';
 
 });
 
