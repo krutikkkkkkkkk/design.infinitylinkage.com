@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: #fff;
+  font-family: "Montserrat", sans-serif;
+}
+
+.row{
+  width: 100%;
+}
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    
+    input[type="file"] {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      background-color: #f1f1f1;
+    }
+    
+    
+    canvas {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      height: auto;
+      width: 1080px;
+      height: 720px;
+    }
+    
+
+    #download-link{
+      width: 250px;
+    }
+
+    .btn-hover {
+      background-color: #5B4DFF;
+      border-radius: 0;
+      text-transform: uppercase;
+      color: #fff;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      font-weight: 700;
+      letter-spacing: 0.1rem;
+    }
+    
+    .btn-hover:hover {
+      background-color: transparent;
+      border: 1px solid #5B4DFF;
+      border-radius: 0;
+      color: #5B4DFF;
+    }
+    
+    .btn-outline-primary{
+      border: 1px solid #5B4DFF;
+      border-radius: 0;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .btn-outline-primary:hover{
+      background-color: #5B4DFF;
+      border: 1px solid #5B4DFF;
+      border-radius: 0;
+      color: #fff;
+    }
+
+
+    
+#dl-status{
+  background-color: #5B4DFF;
+  color: #fff;
+  padding: 5px;
+  margin: 5px;
+}
