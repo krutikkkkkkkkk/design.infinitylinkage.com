@@ -78,6 +78,14 @@ section {
   border: 1px solid #121212;
   box-shadow: 4px 4px 0px #121212;
 }
+.toolsbydi .container .row .col h4 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.toolsbydi .container .row .col .lead {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
 .toolsbydi .container .row .col:nth-child(1) {
   background-color: #5B4DFF;
   color: #fff;

@@ -94,6 +94,16 @@ section{
                 border: 1px solid $color-black;
                 box-shadow: 4px 4px 0px $color-black;
 
+                h4{
+                    font-size: 2rem;
+                    margin-bottom: .5rem;
+                }
+
+                .lead{
+                    font-size: 1rem;
+                    margin-bottom: 1rem;
+                }
+
                 &:nth-child(1){
                     background-color: #5B4DFF;
                     color: #fff;
